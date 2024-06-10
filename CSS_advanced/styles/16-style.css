@@ -430,7 +430,7 @@
           text-transform: var(--section-tagline-transform);
           font-weight: var(--font-weight-bold);
       }
-      .container-class{
+      .container{
           width: 960px;
           margin-left: auto;
           margin-right: auto;
