@@ -420,10 +420,7 @@
           color: var(--color-primary);
       }
       .section{
-        padding-top: var(--section-padding);
-        padding-left: var(--section-padding);
-        padding-bottom: var(--section-padding);
-        padding-right: var(--section-padding);
+        padding: var(--section-padding);
       }
       .section-header{
           text-align: var(--section-header-align);
