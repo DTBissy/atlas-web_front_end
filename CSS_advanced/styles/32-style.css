@@ -1238,6 +1238,14 @@ a:active {
     content: "";
 }
 
+.card-work:hover .card-image {
+    transition: var(--transition-duration) var(--transition-cubic-bezier);
+}
+
+.card-work .card-inner {
+    transition: var(--transition-duration) var(--transition-cubic-bezier);
+}
+
 .card-work:hover .card-title {
     opacity: 1;
 }
