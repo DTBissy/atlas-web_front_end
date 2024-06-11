@@ -616,13 +616,28 @@ a:active {
 	margin: var(--nav-item-margin);
 }
 
+.nav .nav-link::before .nav-item:hover {
+    background-color: var(--color-primary);
+    width: 100%
+}
+
 .nav .nav-link {
 	display: block;
 	padding: 0.5rem 1rem;
 }
 
+.nav .nav-link::before{
+    content: empty;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--color-white);
+    width: 0;
+    height: .20rem;
+}
+
 .nav .nav-link:hover {
-	color: var(--nav-item-link-hover)
+	color: var(--color-white)
 }
 
 ul.row {
