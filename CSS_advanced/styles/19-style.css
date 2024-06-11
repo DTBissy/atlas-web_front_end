@@ -506,8 +506,9 @@
         text-align: right;
       }
       .footer-copyright{
-        margin: none;
+        margin: 0;
         color: var(--text-color);
+        font-size: var(--font-size-small);
 
       }
       .footer{
