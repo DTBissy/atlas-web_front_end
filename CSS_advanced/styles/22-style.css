@@ -427,7 +427,7 @@ template {
 }
 
 
-[data-section-theme=“dark”]{
+[data-section-theme=“dark”] {
 	--text-color: var(--color-white);
 	--section-title-color: var(--color-white);
 	background-color: var(--color-black);
@@ -454,7 +454,7 @@ a:link {
 	text-decoration: none;
 }
 
---nav-item-font-family a:visited {
+a:visited {
 	font-style: italic;
 }
 
