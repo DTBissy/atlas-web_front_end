@@ -422,7 +422,7 @@ template {
 	--nav-item-letter-spacing: .4rem;
 	--nav-item-display: inline-block;
 	--nav-item-margin: 0 0 3rem 0;
-	--nav-item-link-hover: var(--color-primary);
+	--nav-item-link-hover: var(--color-white)
     --button-display: inline-block;
     --button-padding: 1.5rem 3rem;
     --button-border: 0.2rem solid var(--color-primary);
@@ -626,8 +626,8 @@ a:active {
 	padding: 0.5rem 1rem;
 }
 
-.nav .nav-link::before{
-    content: empty;
+.nav .nav-link::before {
+    content: 0;
     position: absolute;
     top: 0;
     left: 0;
@@ -637,7 +637,7 @@ a:active {
 }
 
 .nav .nav-link:hover {
-	color: var(--color-white)
+	color: var(--nav-item-link-hover)
 }
 
 ul.row {
