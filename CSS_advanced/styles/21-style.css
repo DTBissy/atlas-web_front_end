@@ -497,7 +497,7 @@
         display: table;
         clear: both;
       }
-      a[class~="col-"]{
+      a[class^="col-"]{
         float: left;
         padding: 0.5rem;
 
