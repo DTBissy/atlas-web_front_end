@@ -1,0 +1,14 @@
+/* Nested anf nested again*/
+$font-size: 14px;
+$font-size-h1: 16px;
+$font-small: 12px;
+
+body {
+  font-size: $font-size;
+  h1 {
+    font-size: $font-size-h1;
+    .smaller {
+      font-size: $font-small;
+    }
+  }
+}
