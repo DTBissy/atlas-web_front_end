@@ -5,7 +5,7 @@ $text-color2: #FF0000;
 body {
   color: $text-color;
 
-  body > .red {
+  > .red {
     color: $text-color2;
   }
 }
