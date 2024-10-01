@@ -13,7 +13,7 @@ With this project i aim to learn how to use *sass* and *scss* in my css style sh
 - How to declare extend/inheritance styles
 - How to manipulate operators
 
-## Installing Sass
+## Usage
 To install Sass on Ububtu 18.04 and up
 ```
 $ sudo apt-get install -y ruby2.5 ruby2.5-dev
@@ -22,3 +22,5 @@ $ gem install sass -v 3.7.4
 ```
 Or follow the link below
 ### [Download Sass](https://sass-lang.com/install/)
+When editing a *Scss* file run the following code in the terminal to monitor and automatically compile with Sass whenever you make changes to your *Scss* file.
+``` sass --watch input.scss output.css ```
