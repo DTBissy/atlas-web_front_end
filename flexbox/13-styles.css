@@ -802,6 +802,6 @@ ul.row {
   content: ", ";
 }
 
-.tag-list li::after:last-child() {
+.tag-list li::after:last-child {
   content: "";
 }
