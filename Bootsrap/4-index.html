@@ -24,17 +24,17 @@
 
     <ul class="nav nav-tabs" role="tablist">
       <li class="nav-item">
-        <a href="#home" class="nav-link active" data-bs-toggle="tab" data-bs-target="" role="tab" aria-controls="home"
-          aria-selected="true">Introduction</a>
+        <a href="#home" class="nav-link" data-toggle="tab" data-target="#home-tab-pane" role="tab"
+          aria-controls="home-tab-pane" aria-selected="true">Introduction</a>
       </li>
       <li class="nav-item">
-        <a href="#discography" class="nav-link" data-bs-toggle="tab" role="tab" aria-controls="discography"
-          aria-selected="false">Discography</a>
+        <a href="#discography" class="nav-link active" data-toggle="tab" data-target="#discography-tab-pane" role="tab"
+          aria-controls="discography-tab-pane" aria-selected="false">Discography</a>
       </li>
     </ul>
     <div class="tab-content px-3 py-3 bg-white">
 
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <div class="tab-pane fade" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
         <p>
           Bob Dylan (born Robert Allen Zimmerman; May 24, 1941) is an American singer-songwriter, author, and visual
           artist who has been a major figure in popular culture for more than fifty years.
@@ -47,11 +47,13 @@
         </p>
       </div>
 
-      <div class="tab-pane fade" id="discography" role="tabpanel" aria-labelledby="discography">
-        <ul>
-          <li>
-            <a>Bob Dylan <em>(1962)</em></a>
-            <div>
+      <div class="tab-pane fade show active accordian" id="discography-tab-pane" role="tabpanel"
+        aria-labelledby="discography-tab">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-action " aria-current="true">
+            <a href="#bob_dylan" class="" data-toggle="collapse" data-target="#para1" aria-expanded="true"
+              aria-controls="para1">Bob Dylan <em>(1962)</em></a>
+            <div id="para1" class="collapse" aria-labelledby="bob-dylan">
               <p>
                 Bob Dylan is the debut studio album by American singer-songwriter Bob Dylan, released on March 19, 1962
                 by Columbia Records. Produced by Columbia's legendary talent scout John H. Hammond, who signed Dylan to
@@ -61,9 +63,10 @@
             </div>
           </li>
 
-          <li>
-            <a>The Freewheelin' Bob Dylan <em>(1963)</em></a>
-            <div>
+          <li class="list-group-item list-group-item-action">
+            <a href="#freewheelin" class="" data-toggle="collapse" data-target="#para2" aria-expanded="true"
+              aria-controls="para2">The Freewheelin' Bob Dylan <em>(1963)</em></a>
+            <div id="para2" class="collapse" aria-labelledby="freewheelin">
               <p>
                 The Freewheelin' Bob Dylan is the second studio album by American singer-songwriter Bob Dylan, released
                 on May 27, 1963 by Columbia Records. Whereas his self-titled debut album Bob Dylan had contained only
@@ -78,9 +81,10 @@
             </div>
           </li>
 
-          <li>
-            <a>The Times They Are a-Changin' <em>(1964)</em></a>
-            <div>
+          <li class="list-group-item list-group-item-action ">
+            <a href="#times_change" class="" data-toggle="collapse" data-target="#para3" aria-expanded="true"
+              aria-controls="para3">The Times They Are a-Changin' <em>(1964)</em></a>
+            <div id="para3" class="collapse" aria-labelledby="times_change">
               <p>
                 The Times They Are a-Changin' is the third studio album by American singer-songwriter Bob Dylan,
                 released on January 13, 1964 by Columbia Records. Whereas his previous albums Bob Dylan and The
@@ -93,9 +97,10 @@
             </div>
           </li>
 
-          <li>
-            <a>Another Side of Bob Dylan <em>(1964)</em></a>
-            <div>
+          <li class="list-group-item list-group-item-action">
+            <a href="#another_side" class="" data-toggle="collapse" data-target="#para4" aria-expanded="true"
+              aria-controls="para4">Another Side of Bob Dylan <em>(1964)</em></a>
+            <div id="para4" class="collapse" aria-labelledby="another_side">
               <p>
                 Another Side of Bob Dylan is the fourth studio album by American singer and songwriter Bob Dylan,
                 released on August 8, 1964 by Columbia Records.
