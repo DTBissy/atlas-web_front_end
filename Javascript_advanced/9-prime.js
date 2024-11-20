@@ -20,9 +20,8 @@ function isPrime(number) {
     return true;
   }
 }
+const startTime = performance.now();
 
 console.log("Number of prime numbers between 2 and 100:", countPrimeNumbers());
-
-const startTime = performance.now();
 
 console.log("Execution time of printing countPrimeNumbers was", performance.now() - startTime, "milliseconds");

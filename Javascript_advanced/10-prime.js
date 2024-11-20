@@ -1,3 +1,4 @@
+defined
 function countPrimeNumbers() {
   let count = 0;
   for (let num = 2; num <= 100; num++) {
@@ -27,8 +28,8 @@ function HighCountNumbers() {
   };
 };
 
-HighCountNumbers();
-
 const startTime = performance.now();
+
+HighCountNumbers();
 
 console.log("Execution time of calculating prime numbers 100 times was", performance.now() - startTime, "milliseconds");
