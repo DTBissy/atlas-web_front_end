@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Wikipedia Search</title>
+
+</head>
+
+<body>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script type="application/javascript">
+    function createSearchForm() {
+      let searchBar = $('<input type="text" id="searchInput" />');
+
+      let submitButton = $('<input type="submit" value="Submit">"')
+
+      let list = $('<ul></ul>')
+
+      let pagination = $('<ul id="pagination"><ul>')
+
+      submitButton.click(function () {
+        queryWikipedia(searchBar.val(), 0);
+      });
+
+      $('body').append(searchBar, submitButton, list, pagination);
+    }
+
+    function addNewArticle(id, title, snippet) {
+      $('ul').append($(`<li><p><span>${id} -<b>${title}</b></span></p><p>${snippet}</p></li>`));
+    }
+
+    function queryWikipedia(search, offset) {
+      $.ajax({
+        url: `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${search}&format=json`,
+        type: 'GET',
+        dataType: 'jsonp',
+        success: function (data) {
+          data.query.search.forEach(function (results) {
+            addNewArticle(results.pageid, results.title, results.snippet);
+          });
+          buildPagination()
+        }
+      });
+    }
+
+    function buildPagination(numberOfItems, itemsPerPage, currentOffset) {
+
+
+    }
+
+    $(document).ready(function () {
+      createSearchForm();
+    });
+  </script>
+</body>
+
+</html>

@@ -23,20 +23,7 @@
         $('table').append('<tbody></tbody>')
       };
 
-      function addNewMember(firstname, lastName, position) {
 
-        if (position === 'before') {
-          $('tbody').prepend(`<tr><td>${firstname}</td><td>${lastName}</td><td>(x)</td></tr>`);
-        } else {
-          $('tbody').append(`<tr><td>${firstname}</td><td>${lastName}</td><td>(x)</td></tr>`);
-
-        }
-        $('tbody tr td:nth-child(3)').css('background-color', 'orange').click(function () {
-          $(this).closest('tr').remove();
-        })
-
-
-      };
 
       function createForm() {
         $('table').before(`<form action="Input">
