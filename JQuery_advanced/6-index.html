@@ -23,11 +23,21 @@
         $('table').append('<tbody></tbody>')
       };
 
+      function addNewMember(firstname, lastName, position) {
+
+        if (position === 'before') {
+          $('tbody').prepend(`<tr><td>${firstname}</td><td>${lastName}</td></tr>`);
+        } else {
+          $('tbody').append(`<tr><td>${firstname}</td><td>${lastName}</td></tr>`);
+        }
+      };
+
 
 
       function createForm() {
+
         $('table').before(`<form action="Input">
-          <input type = "text" > <input type="text"><select name="Select" id="chose">
+          <input type = "text"> <input type="text"><select name="Select" id="chose">
             <option value="before">Before</option>
             <option value="after">After</option>
           </select>
@@ -37,9 +47,9 @@
 
 
         $('#submit').click(function () {
-          addNewMember($('input:first').val(),
-            $('input:nth-of-type(2)').val(),
-            $('select').find(":selected").text().toLowerCase());
+          addNewMember($('input[type = "text"]:first').val(),
+            $('input[type="text"]:last').val(),
+            $('#chose').val());
         });
       }
 
