@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taks 0</title>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="./src/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+</head>
+
+<body>
+  <script>
+    $(document).ready(function () {
+
+      $("#loginButton").on("click", setCookiesAndShowWelcomeMessage);
+      $("#showCookies").on("click", showCookies);
+      setCookiesAndShowWelcomeMessage();
+
+    });
+
+    function setCookie() {
+      let firstName = $('#firstname').val();
+      let email = $('#email').val();
+
+      if (firstName) {
+        localStorage.setItem('firstname', firstName);
+      }
+
+      if (email) {
+        localStorage.setItem('email', email);
+      }
+
+
+    }
+
+    function getCookie(name) {
+      return Cookies.get(name)
+    }
+
+    function deleteCookies() {
+      localStorage.removeItem('firstname');
+      localStorage.removeItem('email')
+    }
+
+    function showCookies() {
+      let email = getCookie("email");
+      let firstName = getCookie("firstname");
+      $('body').append(`<p>Email: ${email} - Firstname: ${firstName}</p>`);
+    }
+
+
+    function showForm() {
+      $('#welcomeMessage').hide()
+    }
+
+    function hideForm() {
+      $('#form').hide()
+    }
+
+    function deleteCookiesAndShowForm() {
+      Cookies.remove('firstname')
+      Cookies.remove('email')
+      showForm();
+    }
+
+    function setCookiesAndShowWelcomeMessage() {
+      let firstName = $('#firstname').val();
+      let email = $('#email').val();
+
+
+      if (firstName) {
+        Cookies.set('firstname', firstName)
+      }
+
+      if (email) {
+        Cookies.set('email', email)
+      }
+
+      showWelcomeMessageOrForm();
+    }
+
+    function showWelcomeMessageOrForm() {
+      let firstname = getCookie('firstname');
+
+      if (firstname) {
+        hideForm();
+        $('body').html(`<h1 id="welcomeMessage">Welcome ${firstname} <a id="logout">Logout</a></h1>`);
+        $('#logout').click(function () {
+          deleteCookiesAndShowForm();
+          handleReload();
+        });
+      } else {
+        showForm();
+      }
+
+    }
+
+    function handleReload() {
+      window.location.href = window.location.href;
+    }
+
+  </script>
+  <div>
+    <form id="form">
+      <h1>Login to website</h1>
+      <label for="firstname"></label>
+      <input type="text" id="firstname">
+      <label for="email"></label>
+      <input type="text" id="email">
+      <button id="loginButton"> Log me in</button>
+    </form>
+  </div>
+
+  <h1>Cookies</h1>
+  <button id="showCookies">Show me the Cookies</button>
+
+</body>
+
+</html>
