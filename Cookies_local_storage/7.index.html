@@ -34,25 +34,62 @@
     }
 
     function addItemToCart(item) {
-      return sessionStorage.setItem(item, true)
+      let cart = getCartFromStorage();
+
+      if (item in cart) {
+        cart[item] += 1;
+      } else {
+        cart[item] = 1;
+      }
+
+      sessionStorage.setItem('cart', JSON.stringify(cart));
+      displayCart();
+    }
+
+    function removeItemFromCart(item) {
+      let cart = getCartFromStorage();
+
+      delete cart[item];
+      sessionStorage.setItem('cart', JSON.stringify(cart));
+      displayCart();
+    }
+
+    function clearCart() {
+      sessionStorage.removeItem('cart');
+      displayCart();
+    }
+
+    function getCartFromStorage() {
+      let data = sessionStorage.getItem('cart');
+      return data ? JSON.parse(data) : {};
     }
 
     function createStore() {
-      $('body').append('<ul></ul>');
+      $('body').append('<h2>Availabel Items</h2>');
+      $('h2').append('<ul></ul>')
+      $('body').append('<h2>Your Cart:</h2>');
       for (let items = 0; items < availableItms.length; items++) {
-        $('ul').append(`<li>${availableItms[items]}</li>`);
-        $(`ul li`).click(function () {
-          addItemToCart($(this).text());
-        })
+        $('ul').append(`<li class="availabelItems">${availableItms[items]}</li>`);
       }
+      $(`.availabelItems`).click(function () {
+
+        addItemToCart($(this).text());
+      })
     }
 
     function displayCart() {
-      if (sessionStorage.length === 1) {
-        return ''
+
+
+
+      if ($("CartItem") >= 1) {
+        $("#CartItem").empty();
       } else {
-        $('body').append(`<p>You previously had ${sessionStorage.length - 1} items in your cart</p>`)
+        $('h2').append(`<div class="CartItem"></div>`);
       }
+
+      updateCart()
+
+
     }
 
   </script>

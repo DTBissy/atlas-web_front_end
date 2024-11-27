@@ -12,33 +12,33 @@
 
 <body>
   <script>
-    $(document).ready(function () {
-      $("#setCookies").on("click", setCookie);
-      $("#showCookies").on("click", showCookies);
-    });
+    document.addEventListener('DOMContentLoaded', function () {
 
-    function setCookie() {
-      let firstName = $('#firstname').val();
-      let email = $('#email').val();
+      function setCookie() {
+        let firstName = document.getElementById('firstname');
+        let email = document.getElementById('email')
 
-      if (firstName) {
-        localStorage.setItem('firstname', firstName)
+        if (firstName.value.trim()) {
+          localStorage.setItem('firstname', firstName.value)
+        }
+
+        if (email.value.trim()) {
+          localStorage.setItem('email', email.value)
+        }
       }
 
-      if (email) {
-        localStorage.setItem('email', email)
+      function getCookie(name) {
+        return localStorage.getItem(name)
       }
-    }
 
-    function getCookie(name) {
-      return localStorage.getItem(name)
-    }
-
-    function showCookies() {
-      let email = getCookie("email");
-      let firstName = getCookie("firstname");
-      $('body').append(`<p>Email: ${email} - Firstname: ${firstName}</p>`);
-    }
+      function showCookies() {
+        let email = getCookie("email");
+        let firstName = getCookie("firstname");
+        const cookiesDiv = document.createElement('div')
+        cookiesDiv.textContent = `Email: ${email} - Firstname: ${firstName}`
+        document.body.appendChild(cookiesDiv)
+      }
+    })
   </script>
 
   <h1>Login to website</h1>

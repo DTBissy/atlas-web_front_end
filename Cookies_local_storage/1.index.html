@@ -12,33 +12,36 @@
 
 <body>
   <script>
-    $(document).ready(function () {
-      $("#setCookies").on("click", setCookie);
-      $("#showCookies").on("click", showCookies);
+    document.addEventListener('DOMcontentloaded', function () {
+      const setCookiesButton = document.getElementById('setCookies')
+      const showCookiesButton = document.getElementById("showCookies")
+
+      setCookiesButton.addEventListener('click', setCookie);
+      showCookiesButton.addEventListener('click', showCookies)
+
+      function setCookie() {
+        let firstName = document.getElementById('firstname');
+        let email = document.getElementById('email');
+
+        if (firstName.value.trim()) {
+          localStorage.setItem('firstname', firstName, { expires: 30 })
+        }
+
+        if (email.value.trim()) {
+          localStorage.setItem('email', email, { expires: 30 })
+        }
+      }
+
+      function getCookie(name) {
+        return localStorage.getItem(name)
+      }
+
+      function showCookies() {
+        let email = getCookie("email");
+        let firstName = getCookie("firstname");
+        $('body').append(`<p>Email: ${email} - Firstname: ${firstName}</p>`);
+      }
     });
-
-    function setCookie() {
-      let firstName = $('#firstname').val();
-      let email = $('#email').val();
-
-      if (firstName) {
-        localStorage.setItem('firstname', firstName, { expires: 30 })
-      }
-
-      if (email) {
-        localStorage.setItem('email', email, { expires: 30 })
-      }
-    }
-
-    function getCookie(name) {
-      return localStorage.getItem(name)
-    }
-
-    function showCookies() {
-      let email = getCookie("email");
-      let firstName = getCookie("firstname");
-      $('body').append(`<p>Email: ${email} - Firstname: ${firstName}</p>`);
-    }
   </script>
 
   <h1>Login to website</h1>
