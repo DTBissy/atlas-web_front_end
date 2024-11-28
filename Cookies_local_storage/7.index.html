@@ -65,13 +65,13 @@
     }
 
     function createStore() {
-      $('body').append('<h2 id="store">Availabel Items</h2>');
+      $('body').append('<h2 id="store">Available Items</h2>');
       $('h2').append('<ul></ul>')
       $('body').append('<h2 id="cart">Your Cart:</h2>');
       for (let items = 0; items < availableItms.length; items++) {
-        $('ul').append(`<li class="availabelItems">${availableItms[items]}</li>`);
+        $('ul').append(`<li class="availableItems">${availableItms[items]}</li>`);
       }
-      $(`.availabelItems`).click(function () {
+      $(`.availableItems`).click(function () {
 
         addItemToCart($(this).text());
       })
@@ -94,7 +94,7 @@
       cartSection.empty();
 
       if (Object.keys(cart).length > 0) {
-        $('<li>')
+        $('<p>')
           .append($('<button>', { text: "Clear my cart" })
             .on('click', clearCart)
           )
