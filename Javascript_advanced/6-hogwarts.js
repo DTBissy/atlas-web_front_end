@@ -34,22 +34,20 @@ class Hogwarts {
 
 let Harry = new Hogwarts();
 
-Harry.setName("Harry")
-
-Harry.rewardStudent()
-Harry.rewardStudent()
-Harry.rewardStudent()
-Harry.rewardStudent()
-
-Harry.getScore()
-
 let BigDraco = new Hogwarts();
 
+Harry.setName("Harry");
 BigDraco.setName("BigDraco");
 
+Harry.rewardStudent();
+Harry.rewardStudent();
+Harry.rewardStudent();
+Harry.rewardStudent();
 BigDraco.rewardStudent();
 BigDraco.penalizeStudent();
 BigDraco.penalizeStudent();
 BigDraco.penalizeStudent();
 
-BigDraco.getScore();
+
+console.log(BigDraco.getScore());
+console.log(Harry.getScore());

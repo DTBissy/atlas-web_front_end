@@ -65,9 +65,9 @@
     }
 
     function createStore() {
-      $('body').append('<h2>Availabel Items</h2>');
+      $('body').append('<h2 id="store">Availabel Items</h2>');
       $('h2').append('<ul></ul>')
-      $('body').append('<h2>Your Cart:</h2>');
+      $('body').append('<h2 id="cart">Your Cart:</h2>');
       for (let items = 0; items < availableItms.length; items++) {
         $('ul').append(`<li class="availabelItems">${availableItms[items]}</li>`);
       }
@@ -78,21 +78,45 @@
     }
 
     function displayCart() {
+      const cart = $('#cart');
+      cart.empty();
 
+      $('<h2>').text('Your cart:').appendTo(cart);
 
+      $('<div>', { id: 'cartSection' }).appendTo(cart);
 
-      if ($("CartItem") >= 1) {
-        $("#CartItem").empty();
-      } else {
-        $('h2').append(`<div class="CartItem"></div>`);
+      updateCart();
+    }
+
+    function updateCart() {
+      const cart = getCartFromStorage();
+      const cartSection = $('#cartSection');
+      cartSection.empty();
+
+      if (Object.keys(cart).length > 0) {
+        $('<li>')
+          .append($('<button>', { text: "Clear my cart" })
+            .on('click', clearCart)
+          )
+          .appendTo(cartSection);
+
       }
-
-      updateCart()
-
-
+      if (Object.keys(cart).length === 0) {
+        $('<li>').text('Your cart is empty').appendTo(cartSection);
+      } else {
+        $.each(cart, (index, value) => {
+          $('<li>')
+            .text(`${index} x ${value}`)
+            .append($('<button>', { text: '(remove)' })
+              .on('click', () => removeItemFromCart(index))
+            )
+            .appendTo(cartSection);
+        });
+      }
     }
 
   </script>
+  <section></section>
 </body>
 
 </html>

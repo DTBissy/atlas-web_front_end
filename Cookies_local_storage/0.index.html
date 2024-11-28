@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,46 +8,36 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="./src/index.js"></script>
 </head>
-
 <body>
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-
-      function setCookie() {
-        let firstName = document.getElementById('firstname');
-        let email = document.getElementById('email')
-
-        if (firstName.value.trim()) {
-          localStorage.setItem('firstname', firstName.value)
-        }
-
-        if (email.value.trim()) {
-          localStorage.setItem('email', email.value)
-        }
+    $(document).ready(function () {
+      $("#setCookies").on("click", setCookie);
+      $("#showCookies").on("click", showCookies);
+    });
+    function setCookie() {
+      let firstName = $('#firstname').val();
+      let email = $('#email').val();
+      if (firstName) {
+        document.cookie = `firstname=${firstName}; path=/`
       }
-
-      function getCookie(name) {
-        return localStorage.getItem(name)
+      if (email) {
+        document.cookie = `email=${email}; path=/`
       }
-
-      function showCookies() {
-        let email = getCookie("email");
-        let firstName = getCookie("firstname");
-        const cookiesDiv = document.createElement('div')
-        cookiesDiv.textContent = `Email: ${email} - Firstname: ${firstName}`
-        document.body.appendChild(cookiesDiv)
-      }
-    })
+    }
+    function getCookie(name) {
+      return document.cookie
+    }
+    function showCookies() {
+      let email = getCookie("email");
+      let firstName = getCookie("firstname");
+      $('body').append(`<p>${firstName}</p>`);
+    }
   </script>
-
   <h1>Login to website</h1>
   <input type="text" id="firstname">
   <input type="text" id="email">
   <button id="setCookies"> Log me in</button>
-
   <h1>Cookies</h1>
   <button id="showCookies">Show me the Cookies</button>
-
 </body>
-
 </html>

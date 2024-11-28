@@ -24,29 +24,27 @@
     function setCookie() {
       let firstName = $('#firstname').val();
       let email = $('#email').val();
-
       if (firstName) {
-        localStorage.setItem('firstname', firstName);
+        document.cookie = `firstname=${firstName}; ${expire} ;path=/`
       }
-
       if (email) {
-        localStorage.setItem('email', email);
+        document.cookie = `email=${email}; ${expire} ;path=/`
       }
     }
 
-    function getCookie(name) {
-      return localStorage.getItem(name)
+    function getCookie() {
+
     }
 
     function deleteCookies() {
-      localStorage.removeItem('firstname');
-      localStorage.removeItem('email')
+      // document.cookie = `firstname=, expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/"`
+      // document.cookie = `email=, expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/"`
     }
 
     function showCookies() {
       let email = getCookie("email");
       let firstName = getCookie("firstname");
-      $('body').append(`<p>Email: ${email} - Firstname: ${firstName}</p>`);
+      $('body').append(`<p>${firstName}</p>`);
     }
 
 

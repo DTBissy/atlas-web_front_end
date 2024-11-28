@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,6 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="./src/index.js"></script>
 </head>
-
 <body>
   <script>
     $(document).ready(function () {
@@ -18,37 +16,37 @@
     });
 
     function setCookie() {
+      let date = new Date();
+
+      date.setTime(date.getTime() + (10*24*60*60*1000));
+      let expire = "expires=" + date.toUTCString()
+
       let firstName = $('#firstname').val();
       let email = $('#email').val();
-
       if (firstName) {
-        localStorage.setItem('firstname', firstName)
+        document.cookie = `firstname=${firstName}; ${expire} ;path=/`
       }
-
       if (email) {
-        localStorage.setItem('email', email)
+        document.cookie = `email=${email}; ${expire} ;path=/`
       }
     }
 
     function getCookie(name) {
-      return localStorage.getItem(name)
+      return document.cookie
     }
 
     function showCookies() {
       let email = getCookie("email");
       let firstName = getCookie("firstname");
-      $('body').append(`<p>Email: ${email} - Firstname: ${firstName}</p>`);
+      $('body').append(`<p>${firstName}</p>`);
     }
-  </script>
 
+  </script>
   <h1>Login to website</h1>
   <input type="text" id="firstname">
   <input type="text" id="email">
   <button id="setCookies"> Log me in</button>
-
   <h1>Cookies</h1>
   <button id="showCookies">Show me the Cookies</button>
-
 </body>
-
 </html>
